@@ -1,0 +1,42 @@
+{
+  "name": "card-catcher",
+  "version": "1.0.0",
+  "description": "Poker HUD overlay with OCR-based hand tracking",
+  "main": "dist/main/main/index.js",
+  "scripts": {
+    "dev": "concurrently \"npm run build:main -- --watch\" \"vite build --watch --mode development\" \"wait-on dist/main/index.js dist/renderer/index.html && electron .\"",
+    "build:main": "tsc -p tsconfig.main.json",
+    "build:renderer": "vite build",
+    "build": "npm run build:main && npm run build:renderer",
+    "start": "electron .",
+    "postinstall": "electron-rebuild"
+  },
+  "keywords": [
+    "poker",
+    "hud",
+    "overlay"
+  ],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/better-sqlite3": "^7.6.13",
+    "@types/react": "^19.2.14",
+    "@types/react-dom": "^19.2.3",
+    "@vitejs/plugin-react": "^6.0.1",
+    "electron": "^41.0.3",
+    "electron-rebuild": "^3.2.9",
+    "typescript": "^5.9.3",
+    "vite": "^8.0.1"
+  },
+  "dependencies": {
+    "better-sqlite3": "^12.8.0",
+    "concurrently": "^9.2.1",
+    "koffi": "^2.15.2",
+    "react": "^19.2.4",
+    "react-dom": "^19.2.4",
+    "sharp": "^0.34.5",
+    "tesseract.js": "^7.0.0",
+    "wait-on": "^9.0.4",
+    "zustand": "^5.0.12"
+  }
+}

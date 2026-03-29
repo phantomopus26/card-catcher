@@ -1,0 +1,22 @@
+{
+  "compilerOptions": {
+    "target": "ES2020",
+    "module": "commonjs",
+    "lib": ["ES2020"],
+    "strict": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "resolveJsonModule": true,
+    "outDir": "dist/main",
+    "rootDir": "src",
+    "declaration": false,
+    "sourceMap": true
+  },
+  "include": [
+    "src/main/**/*",
+    "src/shared/**/*",
+    "src/preload/**/*"
+  ],
+  "exclude": ["node_modules"]
+}
