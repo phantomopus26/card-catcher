@@ -258,7 +258,7 @@ export function registerIPCHandlers(
         .extract({ left, top, width: roiW, height: roiH })
         .resize(roiW * scaleFactor, roiH * scaleFactor, { kernel: 'cubic' })
         .grayscale()
-        .negate()
+        .negate({ alpha: false })
         .normalise()
         .png()
         .toBuffer();
@@ -432,7 +432,7 @@ export function registerIPCHandlers(
             .extract({ left, top, width: roiW, height: roiH })
             .resize(roiW * scaleFactor, roiH * scaleFactor, { kernel: 'cubic' })
             .grayscale()
-            .negate()
+            .negate({ alpha: false })
             .normalise()
             .png().toBuffer();
           fs.writeFileSync(path.join(debugDir, `seat${seat.seatIndex}-${label}-processed.png`), processed);
@@ -453,7 +453,7 @@ export function registerIPCHandlers(
         .extract({ left: potLeft, top: potTop, width: potW, height: potH })
         .resize(potW * 4, potH * 4, { kernel: 'cubic' })
         .grayscale()
-        .negate()
+        .negate({ alpha: false })
         .normalise()
         .png().toBuffer();
       fs.writeFileSync(path.join(debugDir, 'pot-processed.png'), potProcessed);

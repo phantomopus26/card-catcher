@@ -54,7 +54,7 @@ export async function preprocessROI(
 
   // Invert if text is light on dark background
   if (opts.invert) {
-    pipeline = pipeline.negate();
+    pipeline = pipeline.negate({ alpha: false });
   }
 
   // Sharpen edges

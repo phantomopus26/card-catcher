@@ -41,7 +41,7 @@ async function recognizeROI(
     .resize(width * scaleFactor, height * scaleFactor, { kernel: 'cubic' })
     .grayscale();
 
-  if (invert) pipeline = pipeline.negate();
+  if (invert) pipeline = pipeline.negate({ alpha: false });
   pipeline = pipeline.normalise(); // auto-stretch contrast
 
   const processed = await pipeline.png().toBuffer();
